@@ -105,14 +105,3 @@ class Task():
         user_tasks = all_tasks[user_id][category]
         return user_tasks
         
-
-        
-            
-
-# mytask = Task()
-# # mytask.create_task( 'lab2', 'baldi_1920', 'something', 'study')
-# # mytask.delete_task('lab2', 'apple','baldi_1920')
-# #mytask.moving_task('baldi_1920', 'lab2', 'completed', 'apple' )
-# # mytask.rename_task('baldi_1920', 'completed', 'lab2')
-
-# print(mytask.get_all_tasks('baldi_1920', 'completed'))

@@ -11,27 +11,48 @@ class App():
         print('1. Добавить задачу\n' \
                     '2. Выполнить задачу\n' \
                     '3. Переместить в другую категорию\n' \
-                    '4. Переименовать задачу' \
+                    '4. Переименовать задачу\n' \
                     '5. Удалить задачу\n' \
-                    '6. Посмотреть список всех задача в данной категории'
+                    '6. Посмотреть список всех задач в данной категории'
                     )
         print('<-------------------------------------------------->')
         user_answer = input('Ваш ответ: ')
         match user_answer:
             case "1":
-                pass
+                self.manage.tasks.create_task(input('Введите название задачи: '),
+                                              user_id,
+                                              input('Введите описание для задачи: '),
+                                              category)
+                self.action_tasks(user_id, category)
             case "2":
-                pass
+                self.manage.tasks.moving_task(user_id, 
+                                              input('Введите название задачи, которое вы хотите выполнить: '),
+                                              category)
+                self.action_tasks(user_id, category)
             case "3":
-                pass
+                 self.manage.tasks.moving_task(user_id, 
+                                              input('Введите название задачи, которое вы хотите выполнить: '),
+                                              category,
+                                              input('Введите новую категорию для задачи: '))
+                 self.action_tasks(user_id, category)
             case "4":
-                pass
+                self.manage.tasks.rename_task(user_id, category,
+                                              input('Введите название задачи, название которой вы хотите поменять: '))
+                self.action_tasks(user_id, category)
             case "5":
-                pass
+                self.manage.tasks.delete_task(input('Введите название задачи, которую Вы хотите удалить: '),
+                                              category,
+                                              user_id)
+                self.action_tasks(user_id, category)
             case "6":
-                pass
+                user_tasks = self.manage.tasks.get_all_tasks(user_id, category) 
+                for task in user_tasks:
+                    print(f'Название задачи: {task['task_name']}')
+                    print(f'Описание задачи: {task['description']}')
+                    print("----")
+                self.action_tasks(user_id, category)
             case "q":
-                pass
+                return 
             case _:
                 print('Введите корреткное действие (1-6)')
                 self.action_tasks(user_id, category)

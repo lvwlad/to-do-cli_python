@@ -1,10 +1,28 @@
 {
     "vldslv": {
         "work": [],
-        "study": [],
+        "study": [
+            {
+                "task_name": "do lab2",
+                "description": "aos"
+            },
+            {
+                "task_name": "moving task ",
+                "description": "old category: study"
+            }
+        ],
         "completed": [],
-        "no_category": [],
-        "apple": [],
-        "reading": []
+        "no_category": [
+            {
+                "task_name": "apple",
+                "description": "something"
+            }
+        ],
+        "reading": [
+            {
+                "task_name": "read a book",
+                "description": "every day"
+            }
+        ]
     }
 }

@@ -64,21 +64,6 @@ class User():
                return False
 
 
-                   
-            
-               
-                
-
-# my_do = User()
-# my_do.register('vldslv','vlad', 'qwerty')
-# my_do.register('baldi_1920','aldi', 'qwerty')
-# #my_do.login('vldslv', 'qwerty')
-# my_do.categories.set_new_category('apple', 'baldi_1920')
-# my_do.categories.delete_category('apple', 'baldi_1920')
-#my_do.categories.rename_category('study', 'baldi_1920')
-#my_do.categories.delete_category('work', 'baldi_1920')
-# print(my_do.categories.get_all_user_categories('baldi_1920'))
-
 
 
 

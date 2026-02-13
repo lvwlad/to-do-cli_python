@@ -48,28 +48,33 @@ class Category():
     def delete_category(self, categoty_name: str, user_id: str):
         '''Удаление категории для задач'''
         # filename = 'files/tasks.json'
-        with open(self.filename,'r+') as f:
-            users_task = json.load(f)
-            categories = users_task.get(user_id, 'No user')
-            # categories[categoty_name] = []
-            for task in categories[categoty_name]:
-                categories['no_category'].append(task)
-            del categories[categoty_name]
-            users_task[user_id] = categories
-            f.seek(0)                 # Прыгаем в начало для перезаписи
-            json.dump(users_task, f) # Пишем поверх
-            f.truncate()
+        if categoty_name not in ['completed', 'no_category']:
+            with open(self.filename,'r+') as f:
+                users_task = json.load(f)
+                categories = users_task.get(user_id, 'No user')
+                # categories[categoty_name] = []
+                for task in categories[categoty_name]:
+                    categories['no_category'].append(task)
+                del categories[categoty_name]
+                users_task[user_id] = categories
+                f.seek(0)                 # Прыгаем в начало для перезаписи
+                json.dump(users_task, f) # Пишем поверх
+                f.truncate()
+        else:
+            print('Нельзя удалить данную категорию')
     
     def rename_category(self, old_categoty: str, user_id: str):
         '''Переименование существующей категории'''
-        with open(self.filename, 'r+') as f:
-            all_tasks = json.load(f)
-            new_category_name = input('Введите новое название категории (тэга): ')
-            all_tasks[user_id][new_category_name] = all_tasks[user_id].pop(old_categoty)
-            f.seek(0)
-            json.dump(all_tasks,f)
-            f.truncate()
-
+        if old_categoty not in ['completed', 'no_category']:
+            with open(self.filename, 'r+') as f:
+                all_tasks = json.load(f)
+                new_category_name = input('Введите новое название категории (тэга): ')
+                all_tasks[user_id][new_category_name] = all_tasks[user_id].pop(old_categoty)
+                f.seek(0)
+                json.dump(all_tasks,f)
+                f.truncate()
+        else:
+            print('Нельзя переименовать данную категорию')
     def get_all_user_categories(self,
                                 user_id: str
                                 ):
@@ -81,8 +86,7 @@ class Category():
         with open(self.filename) as f:
             all_categories = json.load(f)
         for category in all_categories[user_id].keys():
-            if category not in ['completed', 'no_category']:
-                user_categories.append(category)
+            user_categories.append(category)
         return user_categories
 
 
