@@ -3,42 +3,8 @@
         "work": [],
         "study": [],
         "completed": [],
-        "no_category": []
-    },
-    "baldi_1920": {
-        "completed": [
-            {
-                "task_name": "lab3",
-                "description": "something"
-            },
-            {
-                "task_name": "lab4",
-                "description": "something"
-            }
-        ],
-        "no_category": [],
-        "apple": [
-            {
-                "task_name": "LAb_2_\u0434\u043e\u0434\u0435\u043b\u0430\u0442\u044c",
-                "description": "something"
-            },
-            {
-                "task_name": "lab2",
-                "description": "something"
-            }
-        ]
-    },
-    "xz": {
-        "work": [],
-        "completed": [],
         "no_category": [],
         "apple": [],
-        "vlados_tasks": []
-    },
-    "qwerty": {
-        "work": [],
-        "study": [],
-        "completed": [],
-        "no_category": []
+        "reading": []
     }
 }
